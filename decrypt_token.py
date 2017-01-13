@@ -1,4 +1,5 @@
-#original http://sainsb.github.io/2012/07/18/decrypting-arcgis-server-tokens/
+# Decrypt arcgis tokens
+# http://sainsb.github.io/2012/07/18/decrypting-arcgis-server-tokens/
 from Crypto.Cipher import AES
 from base64 import *
 
@@ -8,7 +9,9 @@ if token[-1]<>'=':
     token = token + '='
 token = b64decode(token, '-_')
 mode = AES.MODE_CBC
-key = 'YOUR_SHARED_KEY' #https://domain.com/portal/portaladmin/security/tokens
+key = 'YOUR_SHARED_KEY' 
+# for portal https://domain.com/portal/portaladmin/security/tokens
+# for server https://domain.com/arcgis/admin/security/tokens
 key = key [:16]
 cipher = AES.new(key, mode, iv)
 print(cipher.decrypt(token))
