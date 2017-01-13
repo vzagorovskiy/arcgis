@@ -1,3 +1,4 @@
+#original http://sainsb.github.io/2012/07/18/decrypting-arcgis-server-tokens/
 from Crypto.Cipher import AES
 from base64 import *
 
